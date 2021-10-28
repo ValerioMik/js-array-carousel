@@ -67,6 +67,8 @@ p{
     height: 58px;
     object-fit: cover;
     margin-bottom: 2px;
+    opacity: 0.5;
+    
     
 }
 /* sezione active */
@@ -74,10 +76,12 @@ p{
     border: 3px solid white;
     opacity: 1;
     display: block;
+    z-index: 2;
 }
 
 .fas{
     position: absolute;
+    z-index: 999;
 }
 
 .fa-arrow-circle-up{

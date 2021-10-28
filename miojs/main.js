@@ -31,7 +31,7 @@ const text = [
 const itemsCont = document.querySelector('.items');
 const thumbsCont = document.querySelector('.thumbs');
 const next = document.querySelector(".next");
-console.log(next);
+
 
 let item = "";
 let thumbs = "";
@@ -60,38 +60,42 @@ for (let i = 0; i < items.length; i++) {
 
 
 itemsCont.innerHTML = item;
-
 document.getElementsByClassName("item")[0].classList.add("active");
 
 
 thumbsCont.innerHTML += thumbs;
-
 document.getElementsByClassName("thumb")[0].classList.add("active");
 
 let activePointion = 0;
 document.querySelector(".next").addEventListener('click', function(){
 
-    ++activePointion;
-    console.log(activePointion);
+        ++activePointion;
+        if(activePointion > 4){
+            activePointion = 0
+        };
+        console.log(activePointion);
 
-    document.querySelector(".items.active").classList.remove("active");
-    document.getElementsByClassName("items")[activePointion].classList.add("active");
+        document.querySelector(".item.active").classList.remove("active");
+        document.getElementsByClassName("item")[activePointion].classList.add("active");
 
-    document.querySelector(".thumbs.active").classList.remove("active");
-    document.getElementsByClassName("thumb")[activePointion].classList.add("active");
+        document.querySelector(".thumb.active").classList.remove("active");
+        document.getElementsByClassName("thumb")[activePointion].classList.add("active");
    }
 );
 
 let disattivePointion = 0;
 document.querySelector(".prev").addEventListener('click', function(){
 
-    --activePointion;
-    console.log(activePointion);
+        --activePointion;
+        if(activePointion < 0){
+            activePointion = 4
+        };
+        console.log(disattivePointion);
 
-    document.querySelector(".items.active").classList.remove("active");
-    document.getElementsByClassName("items")[activePointion].classList.add("active");
+        document.querySelector(".item.active").classList.remove("active");
+        document.getElementsByClassName("item")[activePointion].classList.add("active");
 
-    document.querySelector(".thumbs.active").classList.remove("active");
-    document.getElementsByClassName("thumb")[activePointion].classList.add("active");
+        document.querySelector(".thumb.active").classList.remove("active");
+        document.getElementsByClassName("thumb")[activePointion].classList.add("active");
    }
 );
